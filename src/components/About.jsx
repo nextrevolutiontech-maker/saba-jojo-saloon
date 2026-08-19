@@ -1,58 +1,75 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import about1 from '../assets/about-1.png';
 import about2 from '../assets/about-2.png';
 
-const About = () => {
+const About = ({ onOpenBooking }) => {
   return (
-    <section className="section-padding" id="about" style={{background: 'var(--bg-dark)'}}>
+    <section className="section-padding" id="about" style={{ background: '#090c0e' }}>
       <div className="container">
-        <div className="services-grid" style={{alignItems: 'center', gap: '60px'}}>
-          <div className="about-images" style={{position: 'relative', height: '550px'}}>
-            <div className="about-img-1" style={{
-              width: '85%', 
-              height: '450px', 
+        <div className="services-grid" style={{ alignItems: 'center', gap: '50px' }}>
+          
+          {/* Responsive Image Display */}
+          <div className="about-images" style={{ position: 'relative', minHeight: '380px' }}>
+            <div style={{
+              width: '88%', 
+              height: '380px', 
               backgroundImage: `url(${about1})`,
               backgroundSize: 'cover',
-              position: 'absolute',
-              top: '0',
-              left: '0',
-              borderRadius: '20px',
-              border: '8px solid var(--bg-card)',
-              zIndex: '2',
+              backgroundPosition: 'center',
+              borderRadius: '16px',
+              border: '4px solid var(--bg-card)',
               boxShadow: 'var(--shadow)'
             }}></div>
-            <div className="about-img-2" style={{
-              width: '75%', 
-              height: '350px', 
+
+            <div style={{
+              width: '65%', 
+              height: '240px', 
               backgroundImage: `url(${about2})`,
               backgroundSize: 'cover',
+              backgroundPosition: 'center',
               position: 'absolute',
-              bottom: '0',
+              bottom: '-20px',
               right: '0',
-              borderRadius: '20px',
-              border: '8px solid var(--bg-card)',
-              zIndex: '1',
-              boxShadow: 'var(--shadow)'
+              borderRadius: '16px',
+              border: '4px solid var(--primary)',
+              boxShadow: 'var(--shadow-gold)'
             }}></div>
           </div>
+
+          {/* Text Content */}
           <div className="about-content">
-            <h4 style={{color: 'var(--primary)', letterSpacing: '4px', marginBottom: '15px', fontWeight: '600'}}>DISCOVER OUR STORY</h4>
-            <h2 style={{fontSize: '3.5rem', lineHeight: '1.1', marginBottom: '30px'}}>UPSCALE <span className="accent-text">BEAUTY</span> & ELEGANCE</h2>
-            <p style={{color: '#ccc', fontSize: '1.1rem', marginBottom: '25px', lineHeight: '1.8'}}>
-              Welcome to Saba Jojo Hair & Beauty Saloon, where luxury meets expertise. For over a decade, we have been the sanctuary for those who seek perfection in every detail of their beauty journey.
+            <h4 style={{ color: 'var(--primary)', letterSpacing: '3px', marginBottom: '12px', fontWeight: '600', fontSize: '0.85rem' }}>
+              DISCOVER OUR STORY
+            </h4>
+            <h2 style={{ fontSize: '2.8rem', lineHeight: '1.25', marginBottom: '25px' }}>
+              UPSCALE <span className="accent-text">BEAUTY</span> & LUXURY ELEGANCE
+            </h2>
+            <p style={{ color: '#ccc', fontSize: '1rem', marginBottom: '25px', lineHeight: '1.8' }}>
+              Welcome to Saba Jojo Hair & Beauty Saloon, Defence Phase 5 Karachi's premier sanctuary for luxury beauty. For over a decade, we have been crafting bespoke bridal makeovers, balayage transformations, and serene skincare sessions.
             </p>
-            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '40px'}}>
-              <div>
-                <h5 style={{color: 'var(--primary)', marginBottom: '10px'}}><i className="fas fa-check-circle"></i> EXPERT STYLISTS</h5>
-                <p style={{fontSize: '0.9rem', color: '#888'}}>Certified professionals with years of experience.</p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '35px' }}>
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '15px', borderRadius: '10px', borderLeft: '3px solid var(--primary)' }}>
+                <h5 style={{ color: 'var(--primary)', marginBottom: '6px', fontSize: '0.9rem' }}>
+                  <i className="fas fa-check-circle"></i> EXPERT STYLISTS
+                </h5>
+                <p style={{ fontSize: '0.82rem', color: '#888', margin: 0 }}>Certified senior masters with 10+ years experience.</p>
               </div>
-              <div>
-                <h5 style={{color: 'var(--primary)', marginBottom: '10px'}}><i className="fas fa-check-circle"></i> PREMIUM PRODUCTS</h5>
-                <p style={{fontSize: '0.9rem', color: '#888'}}>We use only the world's finest beauty brands.</p>
+
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '15px', borderRadius: '10px', borderLeft: '3px solid var(--primary)' }}>
+                <h5 style={{ color: 'var(--primary)', marginBottom: '6px', fontSize: '0.9rem' }}>
+                  <i className="fas fa-check-circle"></i> PREMIUM PRODUCTS
+                </h5>
+                <p style={{ fontSize: '0.82rem', color: '#888', margin: 0 }}>Only top-tier international organic & luxury brands.</p>
               </div>
             </div>
-            <Link to="/contact" className="btn-lavish" style={{display: 'inline-block'}}>Experience Luxury Now</Link>
+
+            <button
+              onClick={() => onOpenBooking && onOpenBooking()}
+              className="btn-lavish"
+            >
+              <i className="fas fa-sparkles"></i> Experience Luxury Now
+            </button>
           </div>
         </div>
       </div>

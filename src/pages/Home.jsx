@@ -3,15 +3,17 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
 import Deals from '../components/Deals';
+import Testimonials from '../components/Testimonials';
 import Gallery from '../components/Gallery';
 import Blogs from '../components/Blogs';
 
-const Home = () => (
+const Home = ({ onOpenBooking }) => (
   <>
-    <Hero />
-    <About />
-    <Services />
-    <Deals />
+    <Hero onOpenBooking={onOpenBooking} />
+    <About onOpenBooking={onOpenBooking} />
+    <Services onOpenBooking={onOpenBooking} />
+    <Deals onOpenBooking={onOpenBooking} />
+    <Testimonials />
     <Gallery />
     <Blogs />
   </>
